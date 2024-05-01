@@ -74,7 +74,7 @@ exports.getAllStoriesByUser = async (req, res) => {
   const userId = req.user.id; // Assuming user ID is available in req.user
 
   try {
-    const stories = await Story.find({ user: userId });
+    const stories = await Story.find({ author: userId });
     res.json(stories);
   } catch (error) {
     errorHandler(res, error);
